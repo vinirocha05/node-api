@@ -12,11 +12,13 @@ class TokenControler {
     if (!user) return res.status(401).json({ errors: ['Usuário não existe'] });
 
     if (!(await user.passwordIsValid(password))) res.status(401).json({ errors: ['Senha inválida'] });
-    const { id } = req.body;
+
+    const { id } = user;
 
     const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
+
     return res.status(200).json({ token });
   }
 }
