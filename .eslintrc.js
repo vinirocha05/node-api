@@ -14,5 +14,6 @@ module.exports = {
     'class-methods-use-this': 'off',
     'import/first': 'off',
     'no-console': 'off',
+    'no-param-reassign': 'off',
   },
 };
